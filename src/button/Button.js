@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export const Button = ({ label, onClick}) => {
     return (
         <div className='button' onClick={onClick}>
-            <p>{label}</p>
+            <p className='button-text'>{label}</p>
         </div>
     )
 }
