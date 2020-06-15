@@ -15,7 +15,7 @@ describe("App", () => {
 
   test("renders a random fact button that onClick fetches a randomFact from API and displays it", async () => {
       // TODO(Billy): Fetch mock not working
-    fetch.mockResponceOnce(
+    fetch.mockResponseOnce(
       JSON.stringify({
         icon_url: "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
         id: "M_4KNb_EQQOyRR_UNtNdew",
