@@ -28,6 +28,9 @@ describe("App", () => {
     expect(randomFact).toBeTruthy();
     fireEvent.click(randomFact);
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(getByText("Chuck Norris sits on his tv and watches the couch.")).toBeTruthy();
+  });
+
+  test('renders a list of categories ', () => {
+    
   });
 });
