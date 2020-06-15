@@ -12,13 +12,16 @@ function App() {
       fetch("https://api.chucknorris.io/jokes/categories").then(
         async (response) => {
           const data = await response.json();
+          console.log(data)
           setCategories(data);
         }
       ).catch(err => {
         console.log('error :', err)
       })
     };
+    fetchCategories()
   }, []);
+  
   const fetchRandomFact = async () => {
     fetch("https://api.chucknorris.io/jokes/random")
       .then(async (response) => {
@@ -30,10 +33,16 @@ function App() {
       });
   };
 
+  // <ul>
+  //   {categories.map((el, index) => (
+  //     <li key={index}>{el}</li>
+  //   ))}
+  // </ul>
   return (
     <div className="App">
       <h1>Chuck Norris facts</h1>
-      <div>{categories}</div>
+      <div>
+      </div>
       <div className="center-content">
         <Button label="Random Fact" onClick={() => fetchRandomFact()} />
       </div>
