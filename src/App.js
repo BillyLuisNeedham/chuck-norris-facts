@@ -1,26 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Button } from "./button/Button";
 
 function App() {
-  function getRandomFact() {
-    return new Promise((resolve, reject) => {
+  const [displayText, setDisplayText] = useState("Hit a button!");
+
+    const fetchRandomFact = async () => {
       fetch("https://api.chucknorris.io/jokes/random")
-        .then((res) => {
-          resolve(console.log(res));
+        .then(async (response) => {
+          const data = await response.json();
+          setDisplayText(data.value);
         })
         .catch((err) => {
-          reject(console.log("error :", err));
+          console.log("error :", err);
         });
-    });
-  }
+    };
+  
 
   return (
     <div className="App">
       <h1>Chuck Norris facts</h1>
       <div className="center-content">
-        <Button label="Random Fact" onClick={() => getRandomFact()} />
+        <Button label="Random Fact" onClick={() => fetchRandomFact()} />
       </div>
+      <h3>{displayText}</h3>
     </div>
   );
 }
