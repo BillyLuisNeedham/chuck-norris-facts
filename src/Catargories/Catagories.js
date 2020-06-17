@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Card } from "@material-ui/core";
+import { ButtonComp as Button } from "../Button/Button";
 
-export const Catagories = (catagories, onClick) => {
+export const Catagories = (catagories, func) => {
   return (
-    <Card raised={true}>
+    <div className='card'>
       <p className="card-title">Categories - Pick One</p>
       <div className="card-cont">
         {catagories.catagories.map((item, index) => (
-          <p onClick={() => onClick(item)} className="card-text" key={index}>
-            {item.charAt(0).toUpperCase() + item.slice(1)}
-          </p>
+          <div onClick={() => func(item)}>
+            <Button
+              className="card-text"
+              key={index}
+              label={item.charAt(0).toUpperCase() + item.slice(1)}
+            />
+          </div>
         ))}
       </div>
-    </Card>
+    </div>
   );
 };
 
