@@ -1,6 +1,8 @@
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import App from "./App";
+import { enableFetchMocks } from "jest-fetch-mock";
+enableFetchMocks();
 
 describe("App", () => {
   let wrapper;
@@ -32,25 +34,25 @@ describe("App", () => {
     );
   });
 
-  test("renders a list of categories ", () => {
+  test("fetches a list of categories from the API ", () => {
     const { getByText } = render(wrapper);
-    expect(fetch),
-      toHaveBeenCalledWith("https://api.chucknorris.io/jokes/categories");
-    expect(getByText("animal")).toBeTruthy();
-    expect(getByText("career")).toBeTruthy();
-    expect(getByText("celebrity")).toBeTruthy();
-    expect(getByText("dev")).toBeTruthy();
-    expect(getByText("explicit")).toBeTruthy();
-    expect(getByText("fashion")).toBeTruthy();
-    expect(getByText("food")).toBeTruthy();
-    expect(getByText("history")).toBeTruthy();
-    expect(getByText("money")).toBeTruthy();
-    expect(getByText("movie")).toBeTruthy();
-    expect(getByText("music")).toBeTruthy();
-    expect(getByText("political")).toBeTruthy();
-    expect(getByText("religion")).toBeTruthy();
-    expect(getByText("science")).toBeTruthy();
-    expect(getByText("sport")).toBeTruthy();
-    expect(getByText("travel")).toBeTruthy();
+    expect(fetch).toHaveBeenCalledWith(
+      "https://api.chucknorris.io/jokes/categories"
+    );
+  });
+
+  test("on Click of a category item it fetches a joke from the API with that category type", () => {
+    fetch.mockResponseOnce(
+      JSON.stringify({
+        catagories: ["animal"],
+      })
+    );
+    const { getByText } = render(wrapper);
+    const animal = getByText("Animal");
+    expect(animal).toBeTruthy();
+    fireEvent.click(animal);
+    expect(fetch).toHaveBeenCalledWith(
+      "https://api.chucknorris.io/jokes/random?category={category}"
+    );
   });
 });
