@@ -10,6 +10,11 @@
   margin: 10em;
 }
 
+.card-title {
+  font-weight: 800;
+  text-decoration: line-through;
+}
+
 .card-cont {
   display: flex;
   flex-wrap: wrap;
