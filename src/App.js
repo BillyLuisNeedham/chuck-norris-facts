@@ -35,6 +35,11 @@ function App() {
       });
   };
 
+  const fetchCategoryFact = async input => {
+    
+  }
+  
+
   return (
     <div className="App">
       <h1>Chuck Norris Facts</h1>
