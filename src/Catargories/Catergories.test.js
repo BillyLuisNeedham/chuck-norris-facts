@@ -25,7 +25,7 @@ describe("Catagories", () => {
 
   test("on click of a category calls onClick function passed by props with the title of the category as an input", () => {
     const { getByText } = render(wrapper);
-    fireEvent.click('Test1')
+    fireEvent.click(getByText('Test1'))
     expect(props.onClick).toHaveBeenCalledWith('test1')
 });
 });
