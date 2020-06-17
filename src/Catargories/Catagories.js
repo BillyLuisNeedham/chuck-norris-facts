@@ -4,6 +4,8 @@ import { Card } from "@material-ui/core";
 import { ButtonComp as Button } from "../Button/Button";
 
 export const Catagories = (catagories, func) => {
+    // TODO: sort out function passed by props 
+    // TODO: center card container
   return (
     <div className='card'>
       <p className="card-title">Categories - Pick One</p>
