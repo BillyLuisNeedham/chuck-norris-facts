@@ -54,7 +54,7 @@ function App() {
       <div className="center-content">
         <Button label="Random Fact" onClick={() => fetchRandomFact()} />
       </div>
-      <Catagories catagories={categories} />
+      <Catagories onClick={fetchCategoryFact} catagories={categories} />
     </div>
   );
 }
