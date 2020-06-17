@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Button } from "./button/Button";
+import { ButtonComp as Button } from "./Button/Button";
 
 function App() {
   const [displayText, setDisplayText] = useState("Hit a button!");
@@ -33,14 +33,9 @@ function App() {
       });
   };
 
-  // <ul>
-  //   {categories.map((el, index) => (
-  //     <li key={index}>{el}</li>
-  //   ))}
-  // </ul>
   return (
     <div className="App">
-      <h1>Chuck Norris facts</h1>
+      <h1>Chuck Norris Facts</h1>
       <div>
       </div>
       <div className="center-content">
