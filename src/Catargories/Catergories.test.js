@@ -1,14 +1,23 @@
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
-import { Catergories } from "./Catagories";
+import { Catagories } from "./Catagories";
 
-describe("Catergories", () => {
+describe("Catagories", () => {
   let wrapper;
-  let props;
+  const props = {
+    catagories: ["test1", "test2", "test3"],
+  };
   beforeEach(() => {
-    wrapper = <Catergories {...props} />;
+    wrapper = <Catagories {...props} />;
   });
   cleanup(() => {
     cleanup();
+  });
+
+  test("maps a list of catagories passed by props with the first letter capitalized", () => {
+    const { getByText } = render(wrapper);
+    expect(getByText('Test1')).toBeTruthy()
+    expect(getByText('Test2')).toBeTruthy()
+    expect(getByText('Test3')).toBeTruthy()
   });
 });
