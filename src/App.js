@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { ButtonComp as Button } from "./Button/Button";
+import { Catagories } from './Catargories/Catagories'
 
 function App() {
   const [displayText, setDisplayText] = useState("Hit a button!");
 
-  const [categories, setCategories] = useState("loading");
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchCategories = async () => {
       fetch("https://api.chucknorris.io/jokes/categories").then(
         async (response) => {
           const data = await response.json();
-          console.log(data)
-          setCategories(data);
+          let objData = (data)
+          console.log(objData)
+          setCategories(objData);
         }
       ).catch(err => {
         console.log('error :', err)
@@ -36,12 +38,12 @@ function App() {
   return (
     <div className="App">
       <h1>Chuck Norris Facts</h1>
-      <div>
-      </div>
+      <div></div>
+      <h3>{displayText}</h3>
       <div className="center-content">
         <Button label="Random Fact" onClick={() => fetchRandomFact()} />
       </div>
-      <h3>{displayText}</h3>
+      <Catagories catagories={categories} />
     </div>
   );
 }
