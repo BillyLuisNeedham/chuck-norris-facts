@@ -10,12 +10,16 @@ describe("ResultsDisplay", () => {
   beforeEach(() => {
     wrapper = <ResultsDisplay {...props} />;
   });
-  cleanup(() => {
+  afterEach(() => {
     cleanup();
   });
 
   it("renders a text passed by props", () => {
     const { getByText } = render(wrapper);
     expect(getByText("test display")).toBeTruthy();
+  });
+
+  it('renders a text count if display is an array of strings', () => {
+      
   });
 });

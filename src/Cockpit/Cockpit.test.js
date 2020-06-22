@@ -19,7 +19,7 @@ describe("Cockpit", () => {
     fetch.resetMocks();
     wrapper = <Cockpit {...props} />;
   });
-  cleanup(() => {
+  afterEach(() => {
     cleanup();
   });
 

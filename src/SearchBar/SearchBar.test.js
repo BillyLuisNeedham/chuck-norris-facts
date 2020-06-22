@@ -11,7 +11,7 @@ describe("SearchBar", () => {
   beforeEach(() => {
     wrapper = <SearchBar {...props} />;
   });
-  cleanup(() => {
+  afterEach(() => {
     cleanup();
   });
 

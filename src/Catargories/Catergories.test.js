@@ -11,7 +11,7 @@ describe("Catagories", () => {
   beforeEach(() => {
     wrapper = <Catagories {...props} />;
   });
-  cleanup(() => {
+  afterEach(() => {
     cleanup();
   });
 
