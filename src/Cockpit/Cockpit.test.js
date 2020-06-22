@@ -116,9 +116,14 @@ describe("Cockpit", () => {
     fireEvent.change(searchBar, { target: { value: "testSearch" } });
     fireEvent.click(searchButton);
     await waitForElement(() => getByText("test search result"));
-    expect(getByText('test search result')).toBeTruthy()
+    expect(getByText("test search result")).toBeTruthy();
     expect(fetch).toHaveBeenCalledWith(
       "https://api.chucknorris.io/jokes/search?query=testSearch"
     );
+  });
+
+  it("renders a ResultsDisplay component", () => {
+    const { getByTitle } = render(wrapper);
+    expect(getByTitle('result-display')).toBeTruthy()
   });
 });
