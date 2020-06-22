@@ -10,7 +10,7 @@ export const SearchBar = ({ searchFunc }) => {
 
   return (
     <div>
-      <div>
+      <div className="search-bar-cont">
         <form>
           <input
             type="text"
