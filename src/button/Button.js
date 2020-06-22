@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-export const Button = ({ label, onClick, title }) => {
+export const Button = ({ label, onClick, title, blue }) => {
   // true when mouse is hovering over button
   const [hovering, setHovering] = useState(false);
 
@@ -15,6 +15,13 @@ export const Button = ({ label, onClick, title }) => {
   useEffect(() => {
     const classNameHandler = () => {
       switch (true) {
+        case hovering && clicked && blue:
+          case clicked && blue:
+          return setClassName("button clicked blue-dark");
+        case hovering && blue:
+          return setClassName("button blue-light")
+        case blue:
+          return setClassName("button blue")
         case hovering && clicked:
         case clicked:
           return setClassName("button clicked yellow-dark");
@@ -46,4 +53,5 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   title: PropTypes.string,
+  blue: PropTypes.bool,
 };
