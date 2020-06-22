@@ -12,6 +12,12 @@
   border-radius: 8px;
 }
 
+.button-cont {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
 .clicked {
   -webkit-box-shadow: inset 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
   -moz-box-shadow: inset 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
@@ -36,13 +42,6 @@
 
 .red {
   background-color: #f4442e;
-}
-
-.center-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 }
 
 .card {
