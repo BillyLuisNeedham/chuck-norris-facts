@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Button } from "../Button/Button";
 
-export const Catagories = (catagories, func) => {
-    // TODO: sort out function passed by props 
-    // TODO: center card container
+export const Catagories = ({catagories, func}) => {
+  
   return (
-    <div className='card'>
+    <div className="card">
       <p className="card-title">Categories - Pick One</p>
       <div className="card-cont">
-        {catagories.catagories.map((item, index) => (
-          <div onClick={() => func(item)}>
+        {catagories.map((item, index) => (
+          <div key={index}>
             <Button
+              onClick={() => func(item)}
               className="card-text"
               key={index}
               label={item.charAt(0).toUpperCase() + item.slice(1)}
@@ -25,4 +25,5 @@ export const Catagories = (catagories, func) => {
 
 Catagories.propTypes = {
   catagories: PropTypes.array.isRequired,
+  func: PropTypes.func.isRequired,
 };
