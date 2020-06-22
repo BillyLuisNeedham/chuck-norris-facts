@@ -16,7 +16,7 @@ export const Cockpit = ({}) => {
           setCategories(objData);
         })
         .catch((err) => {
-          alert("error :", err);
+          console.log("error :", err);
         });
     };
     fetchCategories();
@@ -29,7 +29,7 @@ export const Cockpit = ({}) => {
         setDisplayText(data.value);
       })
       .catch((err) => {
-        alert("error :", err);
+        console.log("error :", err);
       });
   };
 
@@ -40,7 +40,7 @@ export const Cockpit = ({}) => {
         setDisplayText(data.value);
       })
       .catch((err) => {
-        alert("error: ", err);
+        console.log("error: ", err);
       });
   };
 

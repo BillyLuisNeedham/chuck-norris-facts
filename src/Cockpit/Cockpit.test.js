@@ -7,12 +7,14 @@ import {
   waitForElement,
 } from "@testing-library/react";
 import { Cockpit } from "./Cockpit";
+import { act } from "react-dom/test-utils";
 
 describe("Cockpit", () => {
   const mockedCategoryCall = JSON.stringify(["test1", "test2"]);
   let wrapper;
   let props;
   beforeEach(() => {
+      fetch.resetMocks()
     wrapper = <Cockpit {...props} />;
   });
   cleanup(() => {
@@ -69,17 +71,19 @@ describe("Cockpit", () => {
           id: "xwjic1sws_yohsfefndaiw",
           updated_at: "2020-01-05 13:42:19.576875",
           url: "https://api.chucknorris.io/jokes/xwjic1sws_yohsfefndaiw",
-          value: "test1 fetch",
+          value: "test2 fetch",
         }),
       ]
     );
+    const promise = Promise.resolve()
+    const fetchCategoryFact = jest.fn(() => promise)
     const { getByText } = render(wrapper);
-    await waitForElement(() => getByText("Test1"));
-    fireEvent.keyPress(getByText("Test1"));
-    await waitForElement(getByText('test1 fetch'))
-    expect(getByText("test1 fetch")).toBeTruthy();
+    await waitForElement(() => getByText("Test2"));
+    fireEvent.click(getByText("Test2"));
+    await act(() => promise)
     expect(fetch).toHaveBeenCalledWith(
-      "https://api.chucknorris.io/jokes/random?category=test1"
+      "https://api.chucknorris.io/jokes/random?category=test2"
     );
+    expect(getByText("test2 fetch")).toBeTruthy();
   });
 });
