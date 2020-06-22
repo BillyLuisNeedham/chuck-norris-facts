@@ -1,64 +1,35 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent, cleanup, waitForElementToBeRemoved } from "@testing-library/react";
 import { Cockpit } from "./Cockpit";
-import { enableFetchMocks } from "jest-fetch-mock";
-enableFetchMocks();
 
 describe("Cockpit", () => {
   let wrapper;
   let props;
   beforeEach(() => {
     wrapper = <Cockpit {...props} />;
-    fetch.resetMocks();
   });
   cleanup(() => {
     cleanup();
-    jest.mockClear();
   });
 
-  // FIXME(Billy): Need to mock API calls
-
-  test("renders a random fact button that onClick fetches a randomFact from API and displays it", async () => {
+  it("renders a random fact button that onClick fetches a random fact from the API then displays the returned fact on screen", async () => {
     fetch.mockResponseOnce(
       JSON.stringify({
-        data: {
-          categories: [],
-          created_at: "2020-01-05 13:42:24.40636",
-          icon_url:
-            "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
-          id: "v0KZpdCAQ3G_sYhjtSEFxg",
-          updated_at: "2020-01-05 13:42:24.40636",
-          url: "https://api.chucknorris.io/jokes/v0KZpdCAQ3G_sYhjtSEFxg",
-          value: "test random response",
-        },
+        categories: [],
+        created_at: "2020-01-05 13:42:19.897976",
+        icon_url: "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+        id: "dSzdzt0XTjKcM8YwUvbNmg",
+        updated_at: "2020-01-05 13:42:19.897976",
+        url: "https://api.chucknorris.io/jokes/dSzdzt0XTjKcM8YwUvbNmg",
+        value:
+          "test random joke",
       })
-    );
-    const data = await response.json();
+    );  
     const { getByText } = render(wrapper);
-    const randomFact = getByText("Random Fact");
-    expect(randomFact).toBeTruthy();
-    fireEvent.click(randomFact);
-    expect(fetch).toHaveBeenCalledWith(
-      "https://api.chucknorris.io/jokes/random"
-    );
-    expect(data.value).toEqual("test random response");
-  });
-
-  test("fetches a list of categories from the API ", async () => {
-    const {} = render(wrapper);
-    expect(fetch).toHaveBeenCalledWith(
-      "https://api.chucknorris.io/jokes/categories"
-    );
-  });
-
-  test("on Click of a category item it fetches a joke from the API with that category type", async () => {
-    fetch.mockResponseOnce(JSON.stringify({ data: ["animal"] }));
-    const { getByText } = render(wrapper);
-    const animal = getByText("Animal");
-    expect(animal).toBeTruthy();
-    fireEvent.click(animal);
-    expect(fetch).toHaveBeenCalledWith(
-      "https://api.chucknorris.io/jokes/random?category={animal}"
-    );
+    const randomButton = getByText("Random Fact");
+    expect(randomButton).toBeTruthy();
+    fireEvent.click(randomButton)
+    await waitForElementToBeRemoved(() => getByText('Hit a button!'))
+    expect(getByText('test random joke')).toBeTruthy()
   });
 });
