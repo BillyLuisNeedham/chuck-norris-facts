@@ -10,5 +10,5 @@ export const ResultsDisplay = ({display}) => {
 }
 
 ResultsDisplay.propTypes = {
-    display: PropTypes.string,
+    display: PropTypes.any,
 }
