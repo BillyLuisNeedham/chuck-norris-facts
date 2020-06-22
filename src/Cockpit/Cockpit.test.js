@@ -86,12 +86,12 @@ describe("Cockpit", () => {
     expect(getByText("test2 fetch")).toBeTruthy();
   });
 
-  it("renders a search bar and a search button that on click of the search button queries the API for jokes related to the query", () => {
+  it("renders a search bar and a search button that on click of the search button queries the API for jokes related to the query", async () => {
     fetch.mockResponses(
       [mockedCategoryCall],
       [
         JSON.stringify({
-          total: 2,
+          total: 1,
           result: [
             {
               categories: [],
@@ -101,24 +101,24 @@ describe("Cockpit", () => {
               id: "pjepanwfqgowpgc3uf_7hg",
               updated_at: "2020-01-05 13:42:19.104863",
               url: "https://api.chucknorris.io/jokes/pjepanwfqgowpgc3uf_7hg",
-              value:
-                "Chuck Norris doesn't look both ways before he crosses the street... he just roundhouses any cars that get too close.",
-            },
-            {
-              categories: ["explicit"],
-              created_at: "2020-01-05 13:42:19.104863",
-              icon_url:
-                "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
-              id: "bsdvxgtbtegjbundxa101g",
-              updated_at: "2020-01-05 13:42:19.104863",
-              url: "https://api.chucknorris.io/jokes/bsdvxgtbtegjbundxa101g",
-              value:
-                "One day Chuck Norris walked down the street with a massive erection. There were no survivors.",
+              value: "test search result",
             },
           ],
         }),
       ]
     );
-    // TODO: write test
+    const { getByText, getByTitle } = render(wrapper);
+    await waitForElement(() => getByText("Test2"));
+    const searchBar = getByTitle("search-bar");
+    const searchButton = getByText("Search");
+    expect(searchBar).toBeTruthy();
+    expect(searchButton).toBeTruthy();
+    fireEvent.change(searchBar, { target: { value: "testSearch" } });
+    fireEvent.click(searchButton);
+    await waitForElement(() => getByText("test search result"));
+    expect(getByText('test search result')).toBeTruthy()
+    expect(fetch).toHaveBeenCalledWith(
+      "https://api.chucknorris.io/jokes/search?query=testSearch"
+    );
   });
 });
