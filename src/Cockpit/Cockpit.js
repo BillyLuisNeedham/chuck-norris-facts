@@ -7,21 +7,21 @@ export const Cockpit = ({}) => {
 
   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      fetch("https://api.chucknorris.io/jokes/categories")
-        .then(async (response) => {
-          const data = await response.json();
-          let objData = data;
-          console.log(objData);
-          setCategories(objData);
-        })
-        .catch((err) => {
-          console.log("error :", err);
-        });
-    };
-    fetchCategories();
-  }, []);
+//   useEffect(() => {
+//     const fetchCategories = async () => {
+//       fetch("https://api.chucknorris.io/jokes/categories")
+//         .then(async (response) => {
+//           const data = await response.json();
+//           let objData = data;
+//           console.log(objData);
+//           setCategories(objData);
+//         })
+//         .catch((err) => {
+//           console.log("error :", err);
+//         });
+//     };
+//     fetchCategories();
+//   }, []);
 
   const fetchRandomFact = async () => {
     fetch("https://api.chucknorris.io/jokes/random")
@@ -34,7 +34,7 @@ export const Cockpit = ({}) => {
       });
   };
 
-  const fetchCategoryFact = async (input) => {
+ const fetchCategoryFact = async (input) => {
     fetch(`https://api.chucknorris.io/jokes/random?category=${input}`)
       .then(async (response) => {
         const data = await response.json();
@@ -54,7 +54,7 @@ export const Cockpit = ({}) => {
       <div className="button-cont">
         <Button label="Random Fact" onClick={() => fetchRandomFact()} />
       </div>
-      <h3>{displayText}</h3>
+      <h3 title="joke-display">{displayText}</h3>
     </div>
   );
 };
