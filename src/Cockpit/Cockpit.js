@@ -46,7 +46,7 @@ export const Cockpit = ({}) => {
   };
 
   return (
-    <div>
+    <div id="cockpit" title="cockpit">
       <h1>Chuck Norris Facts</h1>
       <div className="catagories-cont">
         <Catagories func={fetchCategoryFact} catagories={categories} />
