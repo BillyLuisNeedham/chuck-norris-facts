@@ -4,18 +4,23 @@ import { Button } from "../Button/Button";
 
 export const SearchBar = ({ searchFunc }) => {
   const [value, setValue] = useState("");
+  const changeTextHandler = (event) => {
+    setValue(event.target.value);
+  };
 
   return (
     <div>
       <div>
-        <input
-          type="text"
-          value={value}
-          onChange={(input) => setValue(input)}
-          className="search-bar"
-          title="search-bar"
-        />
-        <Button label="Search" onClick={() => searchFunc(value)} />
+        <form>
+          <input
+            type="text"
+            value={value}
+            onChange={changeTextHandler}
+            className="search-bar"
+            title="search-bar"
+          />
+          <Button label="Search" onClick={() => searchFunc(value)} />
+        </form>
       </div>
     </div>
   );
