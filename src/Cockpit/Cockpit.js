@@ -7,21 +7,20 @@ export const Cockpit = ({}) => {
 
   const [categories, setCategories] = useState([]);
 
-//   useEffect(() => {
-//     const fetchCategories = async () => {
-//       fetch("https://api.chucknorris.io/jokes/categories")
-//         .then(async (response) => {
-//           const data = await response.json();
-//           let objData = data;
-//           console.log(objData);
-//           setCategories(objData);
-//         })
-//         .catch((err) => {
-//           console.log("error :", err);
-//         });
-//     };
-//     fetchCategories();
-//   }, []);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      fetch("https://api.chucknorris.io/jokes/categories")
+        .then(async (response) => {
+          const data = await response.json();
+          let objData = data;
+          setCategories(objData);
+        })
+        .catch((err) => {
+          console.log("error :", err);
+        });
+    };
+    fetchCategories();
+  }, []);
 
   const fetchRandomFact = async () => {
     fetch("https://api.chucknorris.io/jokes/random")
