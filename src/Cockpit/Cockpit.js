@@ -4,6 +4,8 @@ import { Catagories } from "../Catargories/Catagories";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { ResultsDisplay } from "../ResultsDisplay/ResultsDisplay";
 
+// TODO: Need to make more responsive - doesn't sit well on mobile app
+
 export const Cockpit = ({}) => {
   const [displayText, setDisplayText] = useState("Hit a button!");
 
@@ -53,7 +55,9 @@ export const Cockpit = ({}) => {
         if (data.status !== 400) {
           setDisplayText(data.result.map((fact) => fact.value));
         } else {
-          setDisplayText("Error: Bad request, try again to not make Chuck angry");
+          setDisplayText(
+            "Error: Bad request, try again to not make Chuck angry"
+          );
         }
       })
       .catch((err) => {
@@ -67,11 +71,19 @@ export const Cockpit = ({}) => {
       <div className="catagories-cont">
         <Catagories func={fetchCategoryFact} catagories={categories} />
       </div>
-      <div className="button-cont">
-        <Button label="Random Fact" onClick={() => fetchRandomFact()} />
-        <SearchBar searchFunc={fetchSearchFact} />
+      <div className="center-cont">
+        <div className="card button-cont display-text">
+          <div className="margin-medium">
+          <Button label="Random Fact" onClick={() => fetchRandomFact()} />
+          </div>
+          <div className="medium-margin">
+          <SearchBar searchFunc={fetchSearchFact} />
+          </div>
+        </div>
       </div>
-      <ResultsDisplay display={displayText} />
+      <div className="center-cont">
+        <ResultsDisplay display={displayText} />
+      </div>
     </div>
   );
 };

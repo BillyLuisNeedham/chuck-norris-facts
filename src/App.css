@@ -37,6 +37,14 @@
   background-color: #ffe787;
 }
 
+.blue-light {
+  background-color: #8ccefd;
+}
+
+.blue-dark {
+  background-color: #3c8fca;
+}
+
 .blue {
   background-color: #4bb3fd;
 }
@@ -50,14 +58,19 @@
   -moz-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
   background-color: "#D6D6D6";
+  border-radius: 8px;
   max-width: 500px;
+  margin: 10px;
+}
+
+.center-cont {
+  display: flex;
+  justify-content: center;
 }
 
 .catagories-cont {
   display: flex;
   justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .card-title {
@@ -73,4 +86,22 @@
 .card-text {
   flex: 1;
   margin: 5px;
+}
+
+.display-text {
+  padding: 10px;
+}
+
+.display-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.medium-margin {
+  margin: 10px;
+}
+
+.search-bar-cont {
+  display: flex;
 }
