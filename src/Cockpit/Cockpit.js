@@ -52,7 +52,6 @@ export const Cockpit = ({}) => {
         const data = await response.json();
         if (data.status !== 400) {
           setDisplayText(data.result.map((fact) => fact.value));
-          console.log(displayText);
         } else {
           setDisplayText("Error: Bad request, try again to not make Chuck angry");
         }
