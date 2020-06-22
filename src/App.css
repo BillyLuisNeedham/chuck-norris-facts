@@ -2,6 +2,34 @@
   text-align: center;
 }
 
+.button {
+  -webkit-box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
+  -moz-box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
+  box-shadow: 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
+  width: 100px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+.clicked {
+  -webkit-box-shadow: inset 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
+  -moz-box-shadow: inset 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
+  box-shadow: inset 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
+}
+
+.yellow {
+  background-color: #ffe787;
+}
+
+.blue {
+  background-color: #4bb3fd;
+}
+
+.red {
+  background-color: #f4442e;
+}
+
 .center-content {
   display: flex;
   flex-wrap: wrap;
@@ -14,8 +42,8 @@
   -webkit-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
-  background-color: '#D6D6D6';
-  max-width: 40rem;
+  background-color: "#D6D6D6";
+  max-width: 500px;
 }
 
 .catagories-cont {
@@ -31,6 +59,7 @@
 .card-cont {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card-text {
