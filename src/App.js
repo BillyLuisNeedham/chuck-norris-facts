@@ -51,10 +51,10 @@ function App() {
       <h1>Chuck Norris Facts</h1>
       <div className="catagories-cont">
         <Catagories func={fetchCategoryFact} catagories={categories} />
+        </div>
         <div className="button-cont">
           <Button label="Random Fact" onClick={() => fetchRandomFact()} />
         </div>
-      </div>
       <h3>{displayText}</h3>
     </div>
   );
