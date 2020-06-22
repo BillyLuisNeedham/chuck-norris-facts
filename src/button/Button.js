@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-export const Button = ({ label, onClick }) => {
+export const Button = ({ label, onClick, title }) => {
   // true when mouse is hovering over button
   const [hovering, setHovering] = useState(false);
 
@@ -29,6 +29,7 @@ export const Button = ({ label, onClick }) => {
 
   return (
     <div
+      title={title}
       className={className}
       onClick={onClick}
       onMouseEnter={() => setHovering(true)}
@@ -44,4 +45,5 @@ export const Button = ({ label, onClick }) => {
 Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  title: PropTypes.string,
 };
