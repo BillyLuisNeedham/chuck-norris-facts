@@ -11,10 +11,11 @@ import { act } from "react-dom/test-utils";
 
 describe("Cockpit", () => {
   const mockedCategoryCall = JSON.stringify(["test1", "test2"]);
+  const promise = Promise.resolve();
   let wrapper;
   let props;
   beforeEach(() => {
-      fetch.resetMocks()
+    fetch.resetMocks();
     wrapper = <Cockpit {...props} />;
   });
   cleanup(() => {
@@ -75,15 +76,49 @@ describe("Cockpit", () => {
         }),
       ]
     );
-    const promise = Promise.resolve()
-    const fetchCategoryFact = jest.fn(() => promise)
     const { getByText } = render(wrapper);
     await waitForElement(() => getByText("Test2"));
     fireEvent.click(getByText("Test2"));
-    await act(() => promise)
+    await act(() => promise);
     expect(fetch).toHaveBeenCalledWith(
       "https://api.chucknorris.io/jokes/random?category=test2"
     );
     expect(getByText("test2 fetch")).toBeTruthy();
+  });
+
+  it("renders a search bar and a search button that on click of the search button queries the API for jokes related to the query", () => {
+    fetch.mockResponses(
+      [mockedCategoryCall],
+      [
+        JSON.stringify({
+          total: 2,
+          result: [
+            {
+              categories: [],
+              created_at: "2020-01-05 13:42:19.104863",
+              icon_url:
+                "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+              id: "pjepanwfqgowpgc3uf_7hg",
+              updated_at: "2020-01-05 13:42:19.104863",
+              url: "https://api.chucknorris.io/jokes/pjepanwfqgowpgc3uf_7hg",
+              value:
+                "Chuck Norris doesn't look both ways before he crosses the street... he just roundhouses any cars that get too close.",
+            },
+            {
+              categories: ["explicit"],
+              created_at: "2020-01-05 13:42:19.104863",
+              icon_url:
+                "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+              id: "bsdvxgtbtegjbundxa101g",
+              updated_at: "2020-01-05 13:42:19.104863",
+              url: "https://api.chucknorris.io/jokes/bsdvxgtbtegjbundxa101g",
+              value:
+                "One day Chuck Norris walked down the street with a massive erection. There were no survivors.",
+            },
+          ],
+        }),
+      ]
+    );
+    // TODO: write test
   });
 });
