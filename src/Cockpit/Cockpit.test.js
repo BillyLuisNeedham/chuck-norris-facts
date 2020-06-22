@@ -8,6 +8,7 @@ import {
 } from "@testing-library/react";
 import { Cockpit } from "./Cockpit";
 import { act } from "react-dom/test-utils";
+import userEvent from "@testing-library/user-event";
 
 describe("Cockpit", () => {
   const mockedCategoryCall = JSON.stringify(["test1", "test2"]);
@@ -122,8 +123,35 @@ describe("Cockpit", () => {
     );
   });
 
+  it("renders an error message if a search result comes back with no results", async () => {
+    fetch.mockResponses(
+      [mockedCategoryCall],
+      [
+        JSON.stringify({
+          timestamp: "2020-06-22T15:43:42.363Z",
+          status: 400,
+          error: "Bad Request",
+          message: "search.query: size must be between 3 and 120",
+          violations: {
+            "search.query": "size must be between 3 and 120",
+          },
+        }),
+      ]
+    );
+    const { getByText, getByTitle } = render(wrapper);
+    await waitForElement(() => getByText("Test2"));
+    userEvent.type(getByTitle("search-bar"), "a");
+    fireEvent.click(getByText("Search"));
+    await waitForElement(() =>
+      getByText("Error: Bad request, try again to not make Chuck angry")
+    );
+    expect(
+      getByText("Error: Bad request, try again to not make Chuck angry")
+    ).toBeTruthy();
+  });
+
   it("renders a ResultsDisplay component", () => {
     const { getByTitle } = render(wrapper);
-    expect(getByTitle('result-display')).toBeTruthy()
+    expect(getByTitle("result-display")).toBeTruthy();
   });
 });

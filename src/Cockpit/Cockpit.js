@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../Button/Button";
 import { Catagories } from "../Catargories/Catagories";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { ResultsDisplay } from "../ResultsDisplay/ResultsDisplay";
 
 export const Cockpit = ({}) => {
   const [displayText, setDisplayText] = useState("Hit a button!");
@@ -49,7 +50,12 @@ export const Cockpit = ({}) => {
     fetch(`https://api.chucknorris.io/jokes/search?query=${input}`)
       .then(async (response) => {
         const data = await response.json();
-        setDisplayText(data.value);
+        if (data.status !== 400) {
+          setDisplayText(data.result.map((fact) => fact.value));
+          console.log(displayText);
+        } else {
+          setDisplayText("Error: Bad request, try again to not make Chuck angry");
+        }
       })
       .catch((err) => {
         console.log("error: ", err);
@@ -66,7 +72,7 @@ export const Cockpit = ({}) => {
         <Button label="Random Fact" onClick={() => fetchRandomFact()} />
         <SearchBar searchFunc={fetchSearchFact} />
       </div>
-      <h3 title="joke-display">{displayText}</h3>
+      <ResultsDisplay display={displayText} />
     </div>
   );
 };
