@@ -4,20 +4,18 @@ import { ResultsDisplay } from "./ResultsDisplay";
 
 describe("ResultsDisplay", () => {
   let wrapper;
-  let props;
+  let props = {
+    display: "test display",
+  };
   beforeEach(() => {
     wrapper = <ResultsDisplay {...props} />;
   });
   cleanup(() => {
-    props = null;
     cleanup();
   });
 
   it("renders a text passed by props", () => {
-      props = {
-        display: 'test display'
-      }
     const { getByText } = render(wrapper);
-    expect(getByText('test display')).toBeTruthy()
+    expect(getByText("test display")).toBeTruthy();
   });
 });
