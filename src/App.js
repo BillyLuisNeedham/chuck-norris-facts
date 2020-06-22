@@ -50,12 +50,12 @@ function App() {
     <div className="App">
       <h1>Chuck Norris Facts</h1>
       <div></div>
-      <h3>{displayText}</h3>
       <div className="center-content">
+      <Catagories func={fetchCategoryFact} catagories={categories} />
         <Button label="Random Fact" onClick={() => fetchRandomFact()} />
       </div>
       <div className="catagories-cont">
-        <Catagories func={fetchCategoryFact} catagories={categories} />
+        <h3>{displayText}</h3>
       </div>
     </div>
   );
