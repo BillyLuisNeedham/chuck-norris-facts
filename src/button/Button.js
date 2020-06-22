@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "@material-ui/core/Button/Button";
 
-export const ButtonComp = ({ label, onClick }) => {
+export const Button = ({ label, onClick }) => {
   return (
-    <Button variant='contained' onClick={onClick}>{label}</Button>
+    <div className="button" onClick={onClick} >{label}</div>
   );
 };
 

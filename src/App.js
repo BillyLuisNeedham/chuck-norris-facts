@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { ButtonComp as Button } from "./Button/Button";
+import { Button } from "./Button/Button";
 import { Catagories } from "./Catargories/Catagories";
 
 function App() {

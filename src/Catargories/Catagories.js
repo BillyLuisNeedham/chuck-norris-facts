@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Card } from "@material-ui/core";
-import { ButtonComp as Button } from "../Button/Button";
+import { Button } from "../Button/Button";
 
 export const Catagories = (catagories, func) => {
     // TODO: sort out function passed by props 
