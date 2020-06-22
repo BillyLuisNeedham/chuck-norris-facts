@@ -16,6 +16,8 @@ describe("App", () => {
     jest.mockClear();
   });
 
+  // FIXME(Billy): Need to mock API calls
+
   test("renders a random fact button that onClick fetches a randomFact from API and displays it", async () => {
     const { getByText } = render(wrapper);
     const randomFact = getByText("Random Fact");
