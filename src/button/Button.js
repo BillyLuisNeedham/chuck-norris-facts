@@ -21,7 +21,7 @@ export const Button = ({ label, onClick }) => {
         case hovering:
           return setClassName("button yellow-light");
         default:
-          return setClassName("button");
+          return setClassName("button yellow");
       }
     };
     classNameHandler();
