@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Cockpit } from './Cockpit/Cockpit'
+import { Cockpit } from './containers/Cockpit/Cockpit'
 
 function App() {
 
