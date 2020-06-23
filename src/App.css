@@ -51,6 +51,14 @@
   background-color: #4bb3fd;
 }
 
+.red-light {
+  background-color: #f66958;
+}
+
+.red-dark {
+  background-color: #c33625;
+}
+
 .red {
   background-color: #f4442e;
 }
