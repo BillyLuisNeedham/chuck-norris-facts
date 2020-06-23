@@ -11,6 +11,8 @@
   padding: 5px;
   margin: 5px;
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
 }
 
 .button-cont {
