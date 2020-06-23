@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "../../components/Button/Button";
 import { Catagories } from "../../components/Catargories/Catagories";
-import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { ResultsDisplay } from "../../components/ResultsDisplay/ResultsDisplay";
+import { RandomSearchCard } from "../../components/RandomSearchCard/RandomSearchCard";
 
 // TODO: Need to make more responsive - doesn't sit well on mobile app
 
@@ -71,16 +70,10 @@ export const Cockpit = ({}) => {
       <div className="catagories-cont">
         <Catagories func={fetchCategoryFact} catagories={categories} />
       </div>
-      <div className="center-cont">
-        <div className="card button-cont display-text">
-          <div className="margin-medium">
-          <Button label="Random Fact" onClick={() => fetchRandomFact()} />
-          </div>
-          <div className="medium-margin">
-          <SearchBar searchFunc={fetchSearchFact} />
-          </div>
-        </div>
-      </div>
+      <RandomSearchCard
+        searchFactFunc={fetchSearchFact}
+        randomFactFunc={fetchRandomFact}
+      />
       <div className="center-cont">
         <ResultsDisplay display={displayText} />
       </div>
