@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 export const RandomSearchCard = ({ randomFactFunc, searchFactFunc }) => {
   return (
-    <div className="card ">
+    <div className="card center-cont">
       <div className="random-sea-card-cont">
         <div className="">
           <Button label="Random Fact" onClick={randomFactFunc} red />

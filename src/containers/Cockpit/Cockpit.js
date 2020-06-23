@@ -67,13 +67,17 @@ export const Cockpit = ({}) => {
   return (
     <div id="cockpit" title="cockpit">
       <h1>Chuck Norris Facts</h1>
-      <div className="catagories-cont">
-        <Catagories func={fetchCategoryFact} catagories={categories} />
+      <div className="content-cont">
+        <div className="catagories-cont">
+          <Catagories func={fetchCategoryFact} catagories={categories} />
+        </div>
+        <div className="center-cont">
+          <RandomSearchCard
+            searchFactFunc={fetchSearchFact}
+            randomFactFunc={fetchRandomFact}
+          />
+        </div>
       </div>
-      <RandomSearchCard
-        searchFactFunc={fetchSearchFact}
-        randomFactFunc={fetchRandomFact}
-      />
       <div className="center-cont">
         <ResultsDisplay display={displayText} />
       </div>
