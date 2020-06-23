@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  color: #1B2021;
+  color: #1b2021;
 }
 
 .button {
@@ -28,11 +28,11 @@
 }
 
 .yellow-light {
-  background-color: #FFF0B2;
+  background-color: #fff0b2;
 }
 
 .yellow-dark {
-  background-color: #CCB96C;
+  background-color: #ccb96c;
 }
 
 .yellow {
@@ -106,4 +106,13 @@
 
 .search-bar-cont {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-bar {
+  height: 20px;
+}
+
+.search-bar-button-cont {
 }

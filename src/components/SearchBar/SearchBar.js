@@ -11,16 +11,16 @@ export const SearchBar = ({ searchFunc }) => {
   return (
     <div>
       <div className="search-bar-cont">
-        <form>
-          <input
-            type="text"
-            value={value}
-            onChange={changeTextHandler}
-            className="search-bar"
-            title="search-bar"
-          />
+        <input
+          type="text"
+          value={value}
+          onChange={changeTextHandler}
+          className="search-bar"
+          title="search-bar"
+        />
+        <div className="search-bar-button-cont">
           <Button label="Search" onClick={() => searchFunc(value)} />
-        </form>
+        </div>
       </div>
     </div>
   );
