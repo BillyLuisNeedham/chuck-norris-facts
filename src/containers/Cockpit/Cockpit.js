@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "../Button/Button";
-import { Catagories } from "../Catargories/Catagories";
-import { SearchBar } from "../SearchBar/SearchBar";
-import { ResultsDisplay } from "../ResultsDisplay/ResultsDisplay";
+import { Button } from "../../components/Button/Button";
+import { Catagories } from "../../components/Catargories/Catagories";
+import { SearchBar } from "../../components/SearchBar/SearchBar";
+import { ResultsDisplay } from "../../components/ResultsDisplay/ResultsDisplay";
 
 // TODO: Need to make more responsive - doesn't sit well on mobile app
 
