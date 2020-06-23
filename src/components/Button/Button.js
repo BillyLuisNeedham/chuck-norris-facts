@@ -21,6 +21,7 @@ export const Button = ({ label, onClick, title, blue, red }) => {
         case hovering && red:
           return setClassName("button red-light");
         case red:
+          return setClassName("button red")
         case hovering && clicked && blue:
         case clicked && blue:
           return setClassName("button clicked blue-dark");

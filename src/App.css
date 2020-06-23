@@ -27,42 +27,6 @@
   box-shadow: inset 0px 1px 5px 1px rgba(50, 50, 50, 0.37);
 }
 
-.yellow-light {
-  background-color: #fff0b2;
-}
-
-.yellow-dark {
-  background-color: #ccb96c;
-}
-
-.yellow {
-  background-color: #ffe787;
-}
-
-.blue-light {
-  background-color: #8ccefd;
-}
-
-.blue-dark {
-  background-color: #3c8fca;
-}
-
-.blue {
-  background-color: #4bb3fd;
-}
-
-.red-light {
-  background-color: #f66958;
-}
-
-.red-dark {
-  background-color: #c33625;
-}
-
-.red {
-  background-color: #f4442e;
-}
-
 .card {
   -webkit-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(50, 50, 50, 0.75);
@@ -112,15 +76,57 @@
   margin: 10px;
 }
 
+.random-sea-card-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
 .search-bar-cont {
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .search-bar {
   height: 20px;
 }
 
-.search-bar-button-cont {
+.yellow-light {
+  background-color: #fff0b2;
+}
+
+.yellow-dark {
+  background-color: #ccb96c;
+}
+
+.yellow {
+  background-color: #ffe787;
+}
+
+.blue-light {
+  background-color: #8ccefd;
+}
+
+.blue-dark {
+  background-color: #3c8fca;
+}
+
+.blue {
+  background-color: #4bb3fd;
+}
+
+.red-light {
+  background-color: #f66958;
+}
+
+.red-dark {
+  background-color: #c33625;
+}
+
+.red {
+  background-color: #f4442e;
 }

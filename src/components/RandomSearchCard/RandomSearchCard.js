@@ -5,12 +5,12 @@ import PropTypes from "prop-types";
 
 export const RandomSearchCard = ({ randomFactFunc, searchFactFunc }) => {
   return (
-    <div className="center-cont">
-      <div className="card button-cont display-text">
-        <div className="margin-medium">
-          <Button label="Random Fact" onClick={randomFactFunc} />
+    <div className="card ">
+      <div className="random-sea-card-cont">
+        <div className="">
+          <Button label="Random Fact" onClick={randomFactFunc} red />
         </div>
-        <div className="medium-margin">
+        <div className="">
           <SearchBar searchFunc={searchFactFunc} />
         </div>
       </div>
